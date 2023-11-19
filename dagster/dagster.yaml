@@ -1,0 +1,41 @@
+telemetry:
+      enabled: false
+sensors:
+  use_threads: true
+schedules:
+  use_threads: true
+python_logs:
+  managed_python_loggers:
+    - dagster_logger
+  python_log_level: INFO
+  dagster_handler_config:
+    handlers:
+      fileHandler:
+        class: logging.FileHandler
+        level: INFO
+        filename: "logs/dagster.log"
+        mode: "a"
+        formatter: timeFormatter
+      streamHandler:
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: timeFormatter  
+    formatters:
+      timeFormatter:
+        format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+run_coordinator:
+  module: dagster.core.run_coordinator
+  class: QueuedRunCoordinator
+  config:
+      max_concurrent_runs: {"env": "ELT_MAX_CONCURRENT_RUNS"}
+storage:
+  postgres:
+    postgres_db:
+      username: {"env": "ELT_DATABASE_USERNAME"}
+      password: {"env": "ELT_DATABASE_PASSWORD"}
+      hostname: {"env": "ELT_DATABASE_HOSTNAME"}
+      db_name: {"env": "ELT_DATABASE_NAME"}
+      port: {"env": "ELT_DATABASE_PORT"}
+      params:
+        options: -csearch_path=eventlog

@@ -1,0 +1,10 @@
+.env
+.venv/
+.logs_queue
+.nux
+storage/
+.env
+tmp*/
+logs/*
+dagster.log
+dbt.log

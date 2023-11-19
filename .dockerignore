@@ -1,0 +1,13 @@
+# files or file patterns that should not be copied as part of image creation
+dagster/database_scripts
+dagster/rewild_dbt/models/datamart/**/*test.yaml
+dagster/rewild_dbt/models/datamart/**/*test.yml
+dagster/rewild_dbt/models/stage/**/*test.yaml
+dagster/rewild_dbt/models/stage/**/*test.yml
+dagster/rewild_dbt/logs
+dagster/rewild_dbt/tests
+dagster/rewild_dbt/target/*
+# Except for the 'manifest.json' file
+!dagster/rewild_dbt/target/manifest.json
+dagster/rewild_dbt_tests
+dagster/logs

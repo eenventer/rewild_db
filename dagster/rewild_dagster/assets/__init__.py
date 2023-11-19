@@ -1,0 +1,4 @@
+from dagster import load_assets_from_package_module
+from rewild_dagster.assets import rewild_assets
+
+rewild_assets = load_assets_from_package_module(package_module=rewild_assets)

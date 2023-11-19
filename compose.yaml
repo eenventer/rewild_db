@@ -1,0 +1,10 @@
+services:
+  dagster:
+    container_name: dagster_container
+    image: dagster:dagster
+    ports:
+      - "3000:3000"
+    build:
+      context: .
+      dockerfile: ./dagster/Dockerfile
+    env_file: ./dagster/.env

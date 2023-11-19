@@ -1,0 +1,13 @@
+dbt-core==1.7.1
+dbt-postgres==1.7.1
+dagster==1.5.9
+dagit==1.5.9
+dagster-dbt==0.21.9
+dagster_postgres==0.21.9
+pandas==2.1.3
+pyarrow==14.0.1
+psycopg2==2.9.9
+python-dotenv==1.0.0
+requests==2.31.0
+sqlalchemy==2.0.22
+geoalchemy2==0.14.2
